@@ -1,2 +1,2 @@
 # memgame
-just learning react-native / redux etc.
+adfjithis is split state ust learning react-native / redux etc.

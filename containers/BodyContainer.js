@@ -10,7 +10,7 @@ import { getSelected } from '../selectors';
 const mapStateToProps = state => ({
   score: state.score,
   grid: state.grid,
-  values: getSelected(state.score)
+  values: getSelected(state)
 });
 
 const mapDispatchToProps = dispatch => (

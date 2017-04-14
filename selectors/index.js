@@ -4,7 +4,8 @@ const getValues = (state) => state.grid;
 
 export const getSelected = createSelector(
   [getValues],
-  grid => grid[1]
+  //grid => grid.map(ele => ele[1])
+  grid => grid.reduce((acc, ele) => acc + ele[1], 0)
 );
 
 /*

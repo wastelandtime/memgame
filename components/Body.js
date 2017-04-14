@@ -8,7 +8,6 @@ export default class Body extends Component {
 
   componentWillMount() {
     this.refresh();
-    console.log(this.props.values);
   }
 
   refresh() {
@@ -26,12 +25,6 @@ export default class Body extends Component {
           <Button
             onPress={this.refresh.bind(this)}
             title={'Regenerate the Grid'}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this.refresh.bind(this)}
-            title={'Another'}
           />
         </View>
         <Text>{this.props.values}</Text>
