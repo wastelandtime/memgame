@@ -9,13 +9,18 @@ export default class Body extends Component {
   componentWillMount() {
     this.refresh();
   }
-
+  resetTiles() {
+    this.props.resetTiles(36);
+  }
   refresh() {
     this.props.loadGrid(5);
-    this.props.resetTiles(36);
+    this.resetTiles();
   }
 
   render() {
+    if (this.props.values === 3) {
+      this.resetTiles();
+    }
     return (
       <View style={styles.body}>
         <Grid
@@ -29,7 +34,18 @@ export default class Body extends Component {
             title={'Regenerate the Grid'}
           />
         </View>
-        <Text>{this.props.values}</Text>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={this.resetTiles.bind(this)}
+            title={'Reset Tiles'}
+          />
+        </View>
+        <View style={styles.dashboard}>
+          <Text>Score (totals): {this.props.totals}</Text>
+          <Text>Uncovered (values): {this.props.values}</Text>
+          <Text>Total (sum): {this.props.sum}</Text>
+          <Text>Tuple: {this.props.tuple}</Text>
+        </View>
       </View>
     );
   }
@@ -56,5 +72,14 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 10,
     shadowOpacity: 0.25
+  },
+  dashboard: {
+    backgroundColor: globalStyles.BAR_COLOR,
+    marginLeft: 90,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 200,
+    height: 100
   }
 });

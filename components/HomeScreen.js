@@ -10,9 +10,6 @@ const HomeScreen = () => (
       <Text>Component</Text>
     </Header>
     <BodyContainer />
-    <Footer>
-      <Text>my footer</Text>
-    </Footer>
   </View>
 );
 

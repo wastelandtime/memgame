@@ -1,15 +1,17 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loadGrid } from '../actions/gridActions';
-import { resetTiles, toggleTile } from '../actions/tileActions';
+import { loadGrid, resetTiles, toggleTile } from '../actions';
 import Body from '../components/Body';
-import { getSelected } from '../selectors';
+import { getSelected, showSelected, addSelected, getTuple } from '../selectors';
 
 const mapStateToProps = state => ({
   score: state.score,
   grid: state.grid,
   tiles: state.tiles,
-  values: getSelected(state)
+  values: getSelected(state),
+  totals: showSelected(state),
+  sum: addSelected(state),
+  tuple: getTuple(state)
 });
 
 const mapDispatchToProps = dispatch => (
