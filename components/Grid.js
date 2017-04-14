@@ -13,9 +13,10 @@ export default class Grid extends Component {
           idx={i}
           sqValue={r}
           toggleTile={this.props.toggleTile}
+          tiles={this.props.tiles}
         />
       );
-    }); 
+    });
     const { grid } = styles;
     return (
       <View style={grid}>
@@ -26,9 +27,6 @@ export default class Grid extends Component {
 
 }
 
-Grid.propTypes = {
-  showTile: PropTypes.func
-};
 
 const styles = StyleSheet.create({
   grid: {

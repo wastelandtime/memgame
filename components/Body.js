@@ -12,6 +12,7 @@ export default class Body extends Component {
 
   refresh() {
     this.props.loadGrid(5);
+    this.props.resetTiles(36);
   }
 
   render() {
@@ -20,6 +21,7 @@ export default class Body extends Component {
         <Grid
           inGrid={this.props.grid}
           toggleTile={this.props.toggleTile}
+          tiles={this.props.tiles}
         />
         <View style={styles.buttonContainer}>
           <Button
@@ -35,7 +37,7 @@ export default class Body extends Component {
 }
 
 Body.propTypes = {
-  numbers: PropTypes.object
+
 };
 
 const styles = StyleSheet.create({

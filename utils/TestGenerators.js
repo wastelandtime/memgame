@@ -10,7 +10,7 @@ export const randNumbers = (n) => {
   // and pushing it to the other array
   while (numbers.length) {
     const idx = numbers.length * Math.random() | 0; // floor trick
-    shuffled.push([numbers[idx], 0]);
+    shuffled.push(numbers[idx]);
     numbers.splice(idx, 1);
   }
   //get the first 6
@@ -34,5 +34,12 @@ export const fillGrid = (n) => {
     shuffled = [...shuffled, ...randNumbers(10)];
   }
   return shuffled;
+};
+
+// create an an array of 0s
+export const initialTileStatus = (n) => {
+  let tiles = new Array(n);
+  tiles = tiles.fill(0);
+  return tiles;
 };
 //TODO at the moment, there are duplicates both horizontally and vertically.

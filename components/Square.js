@@ -6,19 +6,18 @@ export default class Square extends Component {
 
   myaction() {
     this.props.toggleTile(this.props.idx);
-    console.log(this.props.idx);
   }
 
   render() {
     const { square, textStyle, squareActive } = styles;
-    const { sqValue } = this.props;
+    const { sqValue, idx, tiles } = this.props;
     return (
       <TouchableHighlight
-        style={[square, sqValue[1] && squareActive]}
+        style={[square, tiles[idx] && squareActive]}
         onPress={this.myaction.bind(this)}
       >
         <View>
-          <Text style={textStyle}>{sqValue[0]}</Text>
+          <Text style={textStyle}>{sqValue}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -26,7 +25,7 @@ export default class Square extends Component {
 }
 
 Square.propTypes = {
-  sqValue: PropTypes.array,
+  sqValue: PropTypes.number,
   showTile: PropTypes.func
 };
 
