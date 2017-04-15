@@ -5,46 +5,57 @@ import * as globalStyles from '../styles/global';
 
 
 export default class Body extends Component {
+  constructor(props) {
+    super(props);
+    //Bind functions
+    this.refresh = this.refresh.bind(this);
+    this.resetTiles = this.resetTiles.bind(this);
+  }
 
   componentWillMount() {
     this.refresh();
   }
+
+  // Cover all tiles
   resetTiles() {
     this.props.resetTiles(36);
   }
+
+  // Regenerate the grid and cover all tiles
   refresh() {
     this.props.loadGrid(5);
     this.resetTiles();
   }
 
   render() {
-    if (this.props.values === 3) {
-      this.resetTiles();
-    }
     return (
       <View style={styles.body}>
         <Grid
           inGrid={this.props.grid}
-          toggleTile={this.props.toggleTile}
+          showTile={this.props.showTile}
+          selectTile={this.props.selectTile}
+          keepTile={this.props.keepTile}
           tiles={this.props.tiles}
+          lastTwo={this.props.lastTwo}
+          getMatch={this.props.getMatch}
         />
         <View style={styles.buttonContainer}>
           <Button
-            onPress={this.refresh.bind(this)}
+            onPress={this.refresh}
             title={'Regenerate the Grid'}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            onPress={this.resetTiles.bind(this)}
+            onPress={this.resetTiles}
             title={'Reset Tiles'}
           />
         </View>
         <View style={styles.dashboard}>
-          <Text>Score (totals): {this.props.totals}</Text>
+          <Text>GetMatch: {this.props.getMatch}</Text>
           <Text>Uncovered (values): {this.props.values}</Text>
           <Text>Total (sum): {this.props.sum}</Text>
-          <Text>Tuple: {this.props.tuple}</Text>
+          <Text>LastTwo: {this.props.lastTwo}</Text>
         </View>
       </View>
     );

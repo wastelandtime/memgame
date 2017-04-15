@@ -12,8 +12,12 @@ export default class Grid extends Component {
           key={i}
           idx={i}
           sqValue={r}
-          toggleTile={this.props.toggleTile}
+          showTile={this.props.showTile}
+          selectTile={this.props.selectTile}
+          keepTile={this.props.keepTile}
           tiles={this.props.tiles}
+          lastTwo={this.props.lastTwo}
+          getMatch={this.props.getMatch}
         />
       );
     });

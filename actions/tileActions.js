@@ -1,5 +1,5 @@
 import {
-  RESET_TILES, TOGGLE_TILE
+  RESET_TILES, SHOW_TILE
 } from './actionTypes';
 import { initialTileStatus } from '../utils/TestGenerators';
 
@@ -11,9 +11,10 @@ export const resetTiles = (n) => {
   };
 };
 
-export const toggleTile = (idx) => {
+export const showTile = (idx, n) => {
   return {
-    type: TOGGLE_TILE,
-    idx
+    type: SHOW_TILE,
+    idx,
+    payload: n
   };
 };

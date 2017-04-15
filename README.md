@@ -1,2 +1,3 @@
 # memgame
-adfjithis is split state ust learning react-native / redux etc.
+
+- it can't be toggle as user can untick the tile. I can only be switch on. Once it reaches 2 tiles, that's it.

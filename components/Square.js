@@ -3,9 +3,29 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import * as globalStyles from '../styles/global';
 
 export default class Square extends Component {
+  constructor(props) {
+    super(props);
+    this.clickTile = this.clickTile.bind(this);
+  }
 
-  myaction() {
-    this.props.toggleTile(this.props.idx);
+  clickTile() {
+    // check how many there are in tuple (need another state in score)
+    // do counting of scores if match,
+    // if match keep'em visible, change color
+    // and change status to 2,
+    // if not, reset tiles (but ensure that previous matches stay)
+    // also track incorrect matches, -score or limited number of moves?
+    //
+    // Problem: if you there are no matching previously but it falls on 2 and 1
+    // then it does not match.
+    // Only dispatch actions for tiles that haven't already been clicked.
+    //if (this.props.tiles[this.props.idx] === 0) {
+      this.props.selectTile(this.props.sqValue, this.props.idx);
+      // if the last two tiles match, mark them as solved
+      if (this.props.getMatch === 1) {
+        this.props.lastTwo.forEach(i => this.props.showTile(i, 2));
+      }
+      this.props.showTile(this.props.idx, 1);
   }
 
   render() {
@@ -14,7 +34,7 @@ export default class Square extends Component {
     return (
       <TouchableHighlight
         style={[square, tiles[idx] && squareActive]}
-        onPress={this.myaction.bind(this)}
+        onPress={this.clickTile}
       >
         <View>
           <Text style={textStyle}>{sqValue}</Text>
@@ -31,7 +51,7 @@ Square.propTypes = {
 
 const styles = StyleSheet.create({
   square: {
-    backgroundColor: globalStyles.ACCENT_COLORS[0],
+    backgroundColor: globalStyles.NU,
     width: 50,
     height: 50,
     borderWidth: 1,
@@ -41,7 +61,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   squareActive: {
-    backgroundColor: globalStyles.TEXT_COLOR
+    backgroundColor: globalStyles.OL
+  },
+  squareSolved: {
+    backgroundColor: globalStyles.GL
   },
   textStyle: {
   color: globalStyles.ACCENT_COLORS[0]
