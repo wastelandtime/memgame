@@ -10,10 +10,9 @@ export const incrementScore = (n) => {
   };
 };
 
-export const selectTile = (val, idx) => {
+export const selectTile = (idx) => {
   return {
     type: SELECT_TILE,
-    val,
     idx
   };
 };

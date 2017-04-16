@@ -9,6 +9,21 @@ export default class Square extends Component {
   }
 
   clickTile() {
+    const { idx, inGrid, lastTwo, showTile, selectTile } = this.props;
+    console.log(lastTwo);
+    selectTile(idx, 1);
+    showTile(idx, 1);
+    console.log(lastTwo);
+/*
+    if (this.props.tiles[idx] === 0) {
+      this.props.showTile(idx, 1);
+      console.log(idx, inGrid[idx], this.props.tiles[idx]);
+      console.log(this.props.tiles, lastTwo);
+    } */
+  }
+  // get index, update tiles to 1, d
+  // problem click 3 razy, 2 tiles are unfolded only™
+  clickTile2() {
     // check how many there are in tuple (need another state in score)
     // do counting of scores if match,
     // if match keep'em visible, change color

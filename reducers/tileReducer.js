@@ -1,9 +1,13 @@
 import { RESET_TILES, SHOW_TILE } from '../actions/actionTypes';
 
-export default (state = [], action) => {
+const initialState = {
+  grid: [],
+  status: []
+};
+export default (state = initialState, action) => {
   switch (action.type) {
     case RESET_TILES:
-      return action.payload;
+      return { ...state, grid: action.payload };
     case SHOW_TILE:
       const nextState = state.slice();
       nextState[action.idx] = action.payload;

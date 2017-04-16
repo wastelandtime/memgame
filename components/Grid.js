@@ -16,6 +16,7 @@ export default class Grid extends Component {
           selectTile={this.props.selectTile}
           keepTile={this.props.keepTile}
           tiles={this.props.tiles}
+          inGrid={this.props.inGrid}
           lastTwo={this.props.lastTwo}
           getMatch={this.props.getMatch}
         />
