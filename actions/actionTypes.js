@@ -1,13 +1,5 @@
-export const LIST_NUMBERS = 'LIST_NUMBERS';
-export const PICK_NUMBER = 'PICK_NUMBER';
-export const SET_NUMBER = 'SET_NUMBER';
-export const TURN_EVEN = 'TURN_EVEN';
-export const TURN_ODD = 'TURN_ODD';
-export const ADD_NEST = 'ADD_NEST';
 export const LOAD_GRID = 'LOAD_GRID';
-export const TOGGLE_TILE = 'TOGGLE_TILE';
 export const RESET_TILES = 'RESET_TILES';
 export const SHOW_TILE = 'SHOW_TILE';
-export const INCREMENT_SCORE = 'INCREMENT_SCORE';
 export const SELECT_TILE = 'SELECT_TILE';
 export const KEEP_TILE = 'KEEP_TILE';

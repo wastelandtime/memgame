@@ -4,29 +4,24 @@ import {
   loadGrid,
   resetTiles,
   showTile,
-  incrementScore,
-  selectTile
+  selectTile,
+  keepTile
 } from '../actions';
 import Body from '../components/Body';
 import {
-  getSelected,
-  showSelected,
-  addSelected,
-  getTuple,
-  lastTwo,
-  getMatch
+  getLastTwo
 } from '../selectors';
 
 const mapStateToProps = state => ({
-  score: state.score,
-  grid: state.grid,
-  tiles: state.tiles,
-  values: getSelected(state),
+  values: state.tiles.values,
+  status: state.tiles.status,
+  lastTwo: getLastTwo(state) // Selector
+  /* values: getSelected(state),
   totals: showSelected(state),
   sum: addSelected(state),
   tuple: getTuple(state),
   lastTwo: lastTwo(state),
-  getMatch: getMatch(state)
+  getMatch: getMatch(state) */
 });
 
 const mapDispatchToProps = dispatch => (
@@ -34,8 +29,8 @@ const mapDispatchToProps = dispatch => (
     showTile,
     loadGrid,
     resetTiles,
-    incrementScore,
-    selectTile
+    selectTile,
+    keepTile
   }, dispatch)
 );
 

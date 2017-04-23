@@ -9,11 +9,28 @@ export default class Square extends Component {
   }
 
   clickTile() {
-    const { idx, inGrid, lastTwo, showTile, selectTile } = this.props;
-    console.log(lastTwo);
-    selectTile(idx, 1);
+    const { sqValue, idx, showTile, lastTwo, values, keepTile } = this.props;
+    //selectTile(idx, 1);
+    if (lastTwo.length >= 2) {
+      console.log(lastTwo[0], values[lastTwo[0]]);
+      console.log(lastTwo[1], values[lastTwo[1]]);
+      if (values[lastTwo[0]] === values[lastTwo[1]]) {
+        console.log('matches');
+        keepTile(lastTwo[0], 2);
+        keepTile(lastTwo[1], 2);
+        console.log(lastTwo.length);
+      } else {
+        console.log('not matching');
+        keepTile(lastTwo[0], 0);
+        keepTile(lastTwo[1], 0);
+        console.log(lastTwo.length);
+      }
+    }
+    console.log('last', lastTwo);
     showTile(idx, 1);
-    console.log(lastTwo);
+    console.log('lastafter', lastTwo);
+    //console.log(lastTwo);
+
 /*
     if (this.props.tiles[idx] === 0) {
       this.props.showTile(idx, 1);
@@ -45,10 +62,10 @@ export default class Square extends Component {
 
   render() {
     const { square, textStyle, squareActive } = styles;
-    const { sqValue, idx, tiles } = this.props;
+    const { sqValue, idx, values, status } = this.props;
     return (
       <TouchableHighlight
-        style={[square, tiles[idx] && squareActive]}
+        style={[square, tileColour(status[idx])]}
         onPress={this.clickTile}
       >
         <View>
@@ -64,6 +81,19 @@ Square.propTypes = {
   showTile: PropTypes.func
 };
 
+const tileColour = (status) => {
+    switch (status) {
+      case 0:
+        return { backgroundColor: globalStyles.ACCENT_COLORS[1] };
+      case 1:
+        return { backgroundColor: globalStyles.OL };
+      case 2:
+        return { backgroundColor: globalStyles.GL };
+      default:
+        return { backgroundColor: globalStyles.ACCENT_COLORS[1] };
+    }
+};
+
 const styles = StyleSheet.create({
   square: {
     backgroundColor: globalStyles.NU,
@@ -71,15 +101,8 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: globalStyles.ACCENT_COLORS[1],
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  squareActive: {
-    backgroundColor: globalStyles.OL
-  },
-  squareSolved: {
-    backgroundColor: globalStyles.GL
   },
   textStyle: {
   color: globalStyles.ACCENT_COLORS[0]

@@ -1,8 +1,14 @@
 import {
-  RESET_TILES, SHOW_TILE
+  RESET_TILES, SHOW_TILE, LOAD_GRID, KEEP_TILE
 } from './actionTypes';
-import { initialTileStatus } from '../utils/TestGenerators';
+import { fillGrid, initialTileStatus } from '../utils/TestGenerators';
 
+export const loadGrid = (n) => {
+  return {
+    type: LOAD_GRID,
+    payload: fillGrid(n)
+  };
+};
 
 export const resetTiles = (n) => {
   return {
@@ -11,10 +17,19 @@ export const resetTiles = (n) => {
   };
 };
 
-export const showTile = (idx, n) => {
+// showTile and selectTile need to be merged
+export const showTile = (idx, payload) => {
   return {
     type: SHOW_TILE,
     idx,
-    payload: n
+    payload
+  };
+};
+
+export const keepTile = (idx, payload) => {
+  return {
+    type: KEEP_TILE,
+    idx,
+    payload
   };
 };

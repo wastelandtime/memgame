@@ -31,13 +31,12 @@ export default class Body extends Component {
     return (
       <View style={styles.body}>
         <Grid
-          inGrid={this.props.grid}
+          values={this.props.values}
+          status={this.props.status}
+          history={this.props.history}
           showTile={this.props.showTile}
-          selectTile={this.props.selectTile}
           keepTile={this.props.keepTile}
-          tiles={this.props.tiles}
           lastTwo={this.props.lastTwo}
-          getMatch={this.props.getMatch}
         />
         <View style={styles.buttonContainer}>
           <Button
@@ -52,10 +51,8 @@ export default class Body extends Component {
           />
         </View>
         <View style={styles.dashboard}>
-          <Text>GetMatch: {this.props.getMatch}</Text>
-          <Text>Uncovered (values): {this.props.values}</Text>
-          <Text>Total (sum): {this.props.sum}</Text>
-          <Text>LastTwo: {this.props.lastTwo}</Text>
+          <Text>{this.props.values}</Text>
+          <Text>{this.props.lastTwo}</Text>
         </View>
       </View>
     );

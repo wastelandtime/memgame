@@ -1,10 +1,16 @@
 import { createSelector } from 'reselect';
 
-const getValues = (state) => state.grid;
-const getTiles = (state) => state.tiles;
-const getHistory = (state) => state.score.history;
-const getMatched = (state) => state.score.matched;
+const getValues = (state) => state.tiles.values;
+const getStatus = (state) => state.tiles.status;
+const getHistory = (state) => state.tiles.history;
 
+// Gets the last two indices
+export const getLastTwo = createSelector(
+  [getHistory],
+  history => history.slice(-2)
+);
+
+/*
 // counts selected tiles
 export const getSelected = createSelector(
   [getTiles],
@@ -27,7 +33,6 @@ export const getTuple = createSelector(
   tile => tile.filter(num => num > 0)
 );
 
-
 // See if it was matched
 export const lastTwo = createSelector(
   [getHistory],
@@ -38,3 +43,5 @@ export const getMatch = createSelector(
   [getMatched, lastTwo],
   match => match
 );
+
+*/
