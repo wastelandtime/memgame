@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
         // Check if a tile is not already selected
         if (nextState[action.idx] === 0) {
           nextState[action.idx] = action.payload;
-          if (state.limbo <= 1) {
+          if (state.limbo.length <= 1) {
             return {
               ...state,
               limbo: [...state.limbo, action.idx],
@@ -26,12 +26,18 @@ export default (state = initialState, action) => {
             };
           }
           console.log('limbo is full');
-          let a = state.values[state.limbo[0]];
-          let b = state.values[state.limbo[1]];
+          const a = state.values[state.limbo[0]];
+          const b = state.values[state.limbo[1]];
           if (a === b) {
             console.log('pasuje');
+            console.log(state.limbo[0], state.limbo[1]);
+            nextState[state.limbo[0]] = 2;
+            nextState[state.limbo[1]] = 2;
           } else {
             console.log('nie pasuje');
+            console.log(state.limbo[0], state.limbo[1]);
+            nextState[state.limbo[0]] = 0;
+            nextState[state.limbo[1]] = 0;
           }
           return {
             ...state,
