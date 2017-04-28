@@ -1,4 +1,4 @@
-import { RESET_TILES, SHOW_TILE, LOAD_GRID, KEEP_TILE, ADD_LIMBO } from '../actions/actionTypes';
+import { RESET_TILES, SHOW_TILE, LOAD_GRID } from '../actions/actionTypes';
 
 const initialState = {
   values: [],
@@ -29,13 +29,9 @@ export default (state = initialState, action) => {
           const a = state.values[state.limbo[0]];
           const b = state.values[state.limbo[1]];
           if (a === b) {
-            console.log('pasuje');
-            console.log(state.limbo[0], state.limbo[1]);
             nextState[state.limbo[0]] = 2;
             nextState[state.limbo[1]] = 2;
           } else {
-            console.log('nie pasuje');
-            console.log(state.limbo[0], state.limbo[1]);
             nextState[state.limbo[0]] = 0;
             nextState[state.limbo[1]] = 0;
           }
@@ -47,17 +43,6 @@ export default (state = initialState, action) => {
           };
         }
       return state;
-    case ADD_LIMBO: // PROBABLY NO NEEDED ANYMORE
-      if (state.limbo <= 1) {
-        return { ...state, limbo: [...state.limbo, action.idx] };
-      } else {
-        console.log('kurwa');
-        return { ...state, limbo: [action.idx] };
-      }
-    case KEEP_TILE:
-      const newState = state.status.slice();
-      newState[action.idx] = action.payload;
-      return { ...state, status: newState };
     default:
       return state;
   }

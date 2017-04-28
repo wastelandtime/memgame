@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import {
   loadGrid,
   resetTiles,
-  showTile,
-  selectTile,
-  keepTile,
-  addLimbo
+  showTile
 } from '../actions';
 import Body from '../components/Body';
 import {
@@ -31,10 +28,7 @@ const mapDispatchToProps = dispatch => (
   bindActionCreators({
     showTile,
     loadGrid,
-    resetTiles,
-    selectTile,
-    keepTile,
-    addLimbo
+    resetTiles
   }, dispatch)
 );
 

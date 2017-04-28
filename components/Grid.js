@@ -13,13 +13,10 @@ export default class Grid extends Component {
           idx={i}
           sqValue={r}
           showTile={this.props.showTile}
-          keepTile={this.props.keepTile}
           values={this.props.values}
           status={this.props.status}
           history={this.props.history}
-          lastTwo={this.props.lastTwo}
           limbo={this.props.limbo}
-          addLimbo={this.props.addLimbo}
         />
       );
     });

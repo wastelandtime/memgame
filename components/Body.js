@@ -35,10 +35,7 @@ export default class Body extends Component {
           status={this.props.status}
           history={this.props.history}
           showTile={this.props.showTile}
-          keepTile={this.props.keepTile}
-          lastTwo={this.props.lastTwo}
           limbo={this.props.limbo}
-          addLimbo={this.props.addLimbo}
         />
         <View style={styles.buttonContainer}>
           <Button
