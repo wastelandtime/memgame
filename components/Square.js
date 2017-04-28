@@ -9,8 +9,9 @@ export default class Square extends Component {
   }
 
   clickTile() {
-    const { sqValue, idx, showTile, lastTwo, values, keepTile } = this.props;
+    const { sqValue, idx, showTile, lastTwo, values, keepTile, addLimbo, limbo } = this.props;
     //selectTile(idx, 1);
+    /*
     if (lastTwo.length >= 2) {
       console.log(lastTwo[0], values[lastTwo[0]]);
       console.log(lastTwo[1], values[lastTwo[1]]);
@@ -26,10 +27,10 @@ export default class Square extends Component {
         console.log(lastTwo.length);
       }
     }
-    console.log('last', lastTwo);
+    */
+    // if ( limbo.length)
+    //addLimbo(idx);
     showTile(idx, 1);
-    console.log('lastafter', lastTwo);
-    //console.log(lastTwo);
 
 /*
     if (this.props.tiles[idx] === 0) {

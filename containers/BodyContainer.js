@@ -5,7 +5,8 @@ import {
   resetTiles,
   showTile,
   selectTile,
-  keepTile
+  keepTile,
+  addLimbo
 } from '../actions';
 import Body from '../components/Body';
 import {
@@ -15,6 +16,8 @@ import {
 const mapStateToProps = state => ({
   values: state.tiles.values,
   status: state.tiles.status,
+  history: state.tiles.history,
+  limbo: state.tiles.limbo,
   lastTwo: getLastTwo(state) // Selector
   /* values: getSelected(state),
   totals: showSelected(state),
@@ -30,7 +33,8 @@ const mapDispatchToProps = dispatch => (
     loadGrid,
     resetTiles,
     selectTile,
-    keepTile
+    keepTile,
+    addLimbo
   }, dispatch)
 );
 

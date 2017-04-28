@@ -37,6 +37,8 @@ export default class Body extends Component {
           showTile={this.props.showTile}
           keepTile={this.props.keepTile}
           lastTwo={this.props.lastTwo}
+          limbo={this.props.limbo}
+          addLimbo={this.props.addLimbo}
         />
         <View style={styles.buttonContainer}>
           <Button
@@ -51,7 +53,6 @@ export default class Body extends Component {
           />
         </View>
         <View style={styles.dashboard}>
-          <Text>{this.props.values}</Text>
           <Text>{this.props.lastTwo}</Text>
         </View>
       </View>

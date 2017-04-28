@@ -1,5 +1,5 @@
 import {
-  RESET_TILES, SHOW_TILE, LOAD_GRID, KEEP_TILE
+  RESET_TILES, SHOW_TILE, LOAD_GRID, KEEP_TILE, ADD_LIMBO
 } from './actionTypes';
 import { fillGrid, initialTileStatus } from '../utils/TestGenerators';
 
@@ -23,6 +23,13 @@ export const showTile = (idx, payload) => {
     type: SHOW_TILE,
     idx,
     payload
+  };
+};
+
+export const addLimbo = (idx) => {
+  return {
+    type: ADD_LIMBO,
+    idx
   };
 };
 

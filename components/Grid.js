@@ -18,6 +18,8 @@ export default class Grid extends Component {
           status={this.props.status}
           history={this.props.history}
           lastTwo={this.props.lastTwo}
+          limbo={this.props.limbo}
+          addLimbo={this.props.addLimbo}
         />
       );
     });
