@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   status: state.tiles.status,
   history: state.tiles.history,
   limbo: state.tiles.limbo,
+  countdown: state.tiles.countdown,
   lastTwo: getLastTwo(state) // Selector
   /* values: getSelected(state),
   totals: showSelected(state),

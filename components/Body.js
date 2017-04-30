@@ -50,7 +50,7 @@ export default class Body extends Component {
           />
         </View>
         <View style={styles.dashboard}>
-          <Text>{this.props.lastTwo}</Text>
+          <Text>{this.props.countdown}</Text>
         </View>
       </View>
     );

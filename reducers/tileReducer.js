@@ -4,7 +4,8 @@ const initialState = {
   values: [],
   status: [],
   history: [],
-  limbo: []
+  limbo: [],
+  countdown: 18
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -25,12 +26,13 @@ export default (state = initialState, action) => {
               history: [...state.history, action.idx]
             };
           }
-          console.log('limbo is full');
           const a = state.values[state.limbo[0]];
           const b = state.values[state.limbo[1]];
+          let nextCount = state.countdown;
           if (a === b) {
             nextState[state.limbo[0]] = 2;
             nextState[state.limbo[1]] = 2;
+            nextCount -= 1;
           } else {
             nextState[state.limbo[0]] = 0;
             nextState[state.limbo[1]] = 0;
@@ -39,7 +41,8 @@ export default (state = initialState, action) => {
             ...state,
             limbo: [action.idx],
             status: nextState,
-            history: [...state.history, action.idx]
+            history: [...state.history, action.idx],
+            countdown: nextCount
           };
         }
       return state;
