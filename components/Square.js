@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, Image } from 'react-native';
 import * as globalStyles from '../styles/global';
 
 export default class Square extends Component {
@@ -22,7 +22,11 @@ export default class Square extends Component {
         onPress={this.clickTile}
       >
         <View>
-          <Text style={textStyle}>{sqValue}</Text>
+          {status[idx] ?
+            <Text style={textStyle}>{sqValue}</Text> :
+            <Image source={require('../images/square.png')} />
+          }
+
         </View>
       </TouchableHighlight>
     );

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   loadGrid,
   resetTiles,
-  showTile
+  showTile,
 } from '../actions';
 import Body from '../components/Body';
 import {
@@ -15,14 +15,7 @@ const mapStateToProps = state => ({
   status: state.tiles.status,
   history: state.tiles.history,
   limbo: state.tiles.limbo,
-  countdown: state.tiles.countdown,
   lastTwo: getLastTwo(state) // Selector
-  /* values: getSelected(state),
-  totals: showSelected(state),
-  sum: addSelected(state),
-  tuple: getTuple(state),
-  lastTwo: lastTwo(state),
-  getMatch: getMatch(state) */
 });
 
 const mapDispatchToProps = dispatch => (

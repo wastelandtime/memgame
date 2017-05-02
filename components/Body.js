@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import Grid from './Grid';
 import * as globalStyles from '../styles/global';
@@ -7,11 +7,11 @@ import * as globalStyles from '../styles/global';
 export default class Body extends Component {
   constructor(props) {
     super(props);
+
     //Bind functions
     this.refresh = this.refresh.bind(this);
     this.resetTiles = this.resetTiles.bind(this);
   }
-
   componentWillMount() {
     this.refresh();
   }
@@ -43,12 +43,7 @@ export default class Body extends Component {
             title={'Regenerate the Grid'}
           />
         </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this.resetTiles}
-            title={'Reset Tiles'}
-          />
-        </View>
+      
         <View style={styles.dashboard}>
           <Text>{this.props.countdown}</Text>
         </View>

@@ -4,6 +4,7 @@ import Square from './Square';
 import * as globalStyles from '../styles/global';
 
 export default class Grid extends Component {
+
   render() {
     const mygrid = [];
     this.props.values.forEach((r, i) => {

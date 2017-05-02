@@ -1,7 +1,5 @@
 import { createSelector } from 'reselect';
 
-const getValues = (state) => state.tiles.values;
-const getStatus = (state) => state.tiles.status;
 const getHistory = (state) => state.tiles.history;
 
 // Gets the last two indices
